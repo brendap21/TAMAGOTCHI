@@ -42,11 +42,11 @@ int main()
     else music.openFromFile("audio/StarWarsAudio.wav");
     music.play();
 
-    Node* estadoFeliz = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_TAMAGOCHI.png", "img/ILUSTRACIONES_FELIZ.png",1);
+    Node* estadoFeliz = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_TAMAGOCHI.png", "img/ILUSTRACIONES_FELIZ.png",0);
     Node* estadoActual = estadoFeliz;
-    Node* estadoEnojado = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_PEGAR.png", "img / ILUSTRACIONES_ENOJADO.png",3);
-    Node* estadoTriste = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_TRISTE-13.png", "img/ILUSTRACIONES_TRISTE-11.png",2);
-    Node* estadoFinal = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_MUERTE.png", "img/ILUSTRACIONES_MUERTO.png",4);
+    Node* estadoEnojado = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_PEGAR.png", "img / ILUSTRACIONES_ENOJADO.png",2);
+    Node* estadoTriste = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_TRISTE-13.png", "img/ILUSTRACIONES_TRISTE-11.png",1);
+    Node* estadoFinal = new Node("img/ILUSTRACIONES_FONDO.png", "img/ILUSTRACIONES_MUERTE.png", "img/ILUSTRACIONES_MUERTO.png",3);
     
     Node* estados[4][4] = {
         {estadoFeliz,estadoTriste,estadoFeliz,estadoFeliz},
@@ -64,26 +64,26 @@ int main()
     while (window.isOpen())
     {
         Event event;
-        opcion = 0;
+        opcion = -1;
         while (window.pollEvent(event))
         {     
             if (event.type == Event::KeyPressed) {
                 
                 if (event.key.code == Keyboard::Q) {
-                    opcion = 4;
                     cout << ("\n\nPresiono la tecla Q\n\n") << endl;
+                    opcion = 3;
                 }
                 if (event.key.code == Keyboard::W) {
-                    opcion = 3;
                     cout << ("\n\nPresiono la tecla W\n\n") << endl;
+                    opcion = 2;
                 }
                 if (event.key.code == Keyboard::R) {
-                    opcion = 2;
                     cout << ("\n\nPresiono la tecla R\n\n") << endl;
+                    opcion = 1;
                 }
                 if (event.key.code == Keyboard::E) {
-                    opcion = 1;
                     cout << ("\n\nPresiono la tecla E\n\n") << endl;
+                    opcion = 0;
                 }
                 if (event.key.code == Keyboard::X) {
                     window.close();
@@ -95,7 +95,6 @@ int main()
         }
         estadoActual = estados[estadoActual->value][opcion];
         
-        //estadoActual->sprite_arturo;
         window.clear();
         window.draw(*estadoActual->sprite_arturo);
         window.display();

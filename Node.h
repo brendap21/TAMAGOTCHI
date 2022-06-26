@@ -14,8 +14,6 @@ public:
 	Texture estado;
 	//Sprite sprite_fondo;
 	Sprite* sprite_arturo;
-	//Sprite sprite_estado;
-
 
 	Node(string fondo, string ruta_arturo, string ruta_estado, int v) {
 		value = v;
@@ -34,7 +32,7 @@ public:
 		//sprite_arturo->setTexture(&texture);
 
 		//sprite_fondo;
-		sprite_arturo->setPosition(25, -25);
+		sprite_arturo->setPosition(0, 0);
 		//sprite_estado.setPosition(672, 490);
 	}
 
